@@ -6,11 +6,13 @@ const demo = require('./demo.js')
 const lodash = require('lodash');
 const yarg = require('yargs');
 
-var a = process.argv;
-var command = a[2];
-console.log(command);
+
 var yarg_value = yarg.argv;
 console.log('yargs: ', yarg_value);
+
+var command = yarg_value._[0];
+
+console.log(command);
 
 if (command === 'add') {
 demo.add(yarg_value.title, yarg_value.body);
