@@ -16,9 +16,7 @@ if (command === 'add') {
 var node = note.addNote(yarg_value.title, yarg_value.body);
 if (node) {
 console.log('Note is added in json file');
-console.log('---------------------');
-console.log(`Title: ${node.title}`);
-console.log(`Body: ${node.body}`);
+note.logNote(node);
 } else {
     console.log('Same data already exist!')
 }
@@ -28,9 +26,7 @@ console.log(`Body: ${node.body}`);
 var node =  note.getNote(yarg_value.title);
 if (node) {
 console.log('Get Note from json file');
-console.log('---------------------');
-console.log(`Title: ${node.title}`);
-console.log(`Body: ${node.body}`);
+note.logNote(node);
 } else {
     console.log('Note not found!')
 }

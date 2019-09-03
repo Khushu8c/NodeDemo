@@ -18,6 +18,13 @@ var fetchData = () => {
 var saveData = (notes) => {
   fs.writeFileSync('notes-add.json', JSON.stringify(notes));
 }
+
+var logNote = (note) => {
+  console.log('---------------------');
+  console.log(`Title: ${note.title}`);
+  console.log(`Body: ${note.body}`);
+}
+
 var addNote  = (title, body) => {
   console.log('Adding notes', title, body);
 
@@ -57,5 +64,6 @@ module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  logNote
 }
