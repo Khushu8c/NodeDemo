@@ -2,7 +2,7 @@ console.log('Starting app.js');
 console.log('Hello world!');
 const fs = require('fs');
 const os = require('os');
-const demo = require('./demo.js')
+const note = require('./note.js')
 const lodash = require('lodash');
 const yarg = require('yargs');
 
@@ -11,17 +11,15 @@ var yarg_value = yarg.argv;
 console.log('yargs: ', yarg_value);
 
 var command = yarg_value._[0];
-
 console.log(command);
-
 if (command === 'add') {
-demo.add(yarg_value.title, yarg_value.body);
+note.addNote(yarg_value.title, yarg_value.body);
 } else if (command === 'list') {
-  demo.getAll();
+  note.getAll();
 } else if (command === 'read') {
-  demo.read(yarg_value.title);
+  note.read(yarg_value.title);
 } else if (command === 'remove') {
-  demo.remove(yarg_value.title);
+  note.remove(yarg_value.title);
 } else {
   console.log('Unknown command: ', command);
 }
@@ -37,8 +35,8 @@ demo.add(yarg_value.title, yarg_value.body);
 
 
 
-//console.log(demo.printsss());
-//console.log(demo.add(3,7));
+//console.log(note.printsss());
+//console.log(note.add(3,7));
 //var a = os.userInfo();
 //fs.appendFile('message.txt', `Hello ${a.username} !`, (err) => {
 //  if (err) throw err;
