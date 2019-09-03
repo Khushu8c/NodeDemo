@@ -13,7 +13,15 @@ console.log('yargs: ', yarg_value);
 var command = yarg_value._[0];
 console.log(command);
 if (command === 'add') {
-note.addNote(yarg_value.title, yarg_value.body);
+var node = note.addNote(yarg_value.title, yarg_value.body);
+if (node) {
+console.log('Note is added in json file');
+console.log('---------------------');
+console.log(`Title: ${node.title}`);
+console.log(`Body: ${node.body}`);
+} else {
+    console.log('Same data already exist!')
+}
 } else if (command === 'list') {
   note.getAll();
 } else if (command === 'read') {
