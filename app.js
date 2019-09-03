@@ -25,9 +25,19 @@ console.log(`Body: ${node.body}`);
 } else if (command === 'list') {
   note.getAll();
 } else if (command === 'read') {
-  note.read(yarg_value.title);
+var node =  note.getNote(yarg_value.title);
+if (node) {
+console.log('Get Note from json file');
+console.log('---------------------');
+console.log(`Title: ${node.title}`);
+console.log(`Body: ${node.body}`);
+} else {
+    console.log('Note not found!')
+}
 } else if (command === 'remove') {
-  note.remove(yarg_value.title);
+  var isRemoved = note.removeNote(yarg_value.title);
+  var message = isRemoved ? 'Note removed' : 'Note not found';
+  console.log(message);
 } else {
   console.log('Unknown command: ', command);
 }

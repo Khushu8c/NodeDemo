@@ -40,18 +40,22 @@ var getAll = () => {
   console.log('get all notes');
 }
 
-var read = (title) => {
-  console.log('get read: ', title);
+var getNote = (title) => {
+  var notes = fetchData();
+  var fetchedData = notes.filter((note) => note.title === title);
+  return fetchedData[0];
 }
 
-var remove = (title) => {
-  console.log('remove : ', title);
+var removeNote = (title) => {
+  var notes = fetchData();
+  var fetchedData = notes.filter((note) => note.title !== title);
+  saveData(fetchedData);
+  return notes.length !== fetchedData.length;
 }
+
 module.exports = {
   addNote,
   getAll,
-  read,
-  remove
+  getNote,
+  removeNote
 }
-//console.log(a);
-//console.log(module);
