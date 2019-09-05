@@ -6,8 +6,33 @@ const note = require('./note.js')
 const lodash = require('lodash');
 const yarg = require('yargs');
 
+var titleOptions = {
+describe: 'Title of the note',
+demand: true,
+alias: 't'
+};;
 
-var yarg_value = yarg.argv;
+var bodyOptions = {
+  describe: 'body of the note',
+  demand: true,
+  alias: 'b'
+};
+
+
+var yarg_value = yarg
+.command('add','addin note', {
+title: titleOptions ,
+body: bodyOptions
+})
+.command('read', 'read detail of note', {
+  title: titleOptions
+})
+.command('list', 'list all notes')
+.command('remove', 'to remove node with given title', {
+  title: titleOptions
+})
+.help()
+.argv;
 console.log('yargs: ', yarg_value);
 
 var command = yarg_value._[0];
