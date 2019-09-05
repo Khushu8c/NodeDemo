@@ -9,11 +9,14 @@ var user = {
     // arrow function is not allowing this key word
     //output of below line: Hello   undefined
     console.log(`Hello   ${this.name}`);
+    console.log(arguments);
   },
   setHiAlt () {
+    console.log(arguments);
     console.log(`Hello   ${this.name}`);
     // output of above line: Hello   soniya
   }
 }
 
-user.setHiAlt();
+user.setHiAlt(1,2,3);
+user.setHi(1);
