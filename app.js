@@ -21,7 +21,9 @@ note.logNote(node);
     console.log('Same data already exist!')
 }
 } else if (command === 'list') {
-  note.getAll();
+  var notes = note.getAll();
+  console.log(`Print values of ${notes.length} note(s).`);
+  notes.forEach((eachNote) => note.logNote(eachNote));
 } else if (command === 'read') {
 var node =  note.getNote(yarg_value.title);
 if (node) {

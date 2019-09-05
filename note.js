@@ -20,6 +20,7 @@ var saveData = (notes) => {
 }
 
 var logNote = (note) => {
+  debugger;
   console.log('---------------------');
   console.log(`Title: ${note.title}`);
   console.log(`Body: ${note.body}`);
@@ -45,7 +46,8 @@ if (duplicateNotes.length === 0) {
 
 var getAll = () => {
   console.log('get all notes');
-}
+  return fetchData();
+  }
 
 var getNote = (title) => {
   var notes = fetchData();
